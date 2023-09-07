@@ -1,0 +1,51 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        //створення нової мапи
+        HashMap<Integer, String> catalogOfProdykt = new HashMap<>();
+
+        //додаємо ключі та значення до мапи
+        catalogOfProdykt.put(2221223, "apple");
+        catalogOfProdykt.put(2213142, "carrot");
+        catalogOfProdykt.put(8762422, "watermelon");
+
+        //просимо новий код продукту в user
+        System.out.println("enter key: ");
+        Integer key = Integer.valueOf(sc.nextLine());
+
+        //просимо нову назу продукту
+        System.out.println("enter value: ");
+        String value = sc.nextLine();
+
+        //добавляємо значення та ключ дол мапи
+        catalogOfProdykt.put(key, value);
+
+        //видаляємо проудкт "для прикладу"
+        catalogOfProdykt.remove(2221223);
+
+        //робимо пошук продукту по ключу та виводимо його на екран
+        String carrot = catalogOfProdykt.get(2213142);
+        System.out.println(carrot);
+
+        //перевіряємо наявність ключа
+        System.out.println(catalogOfProdykt.containsKey(8762422));
+
+        //метод для того щоб всі ключі вивело на екран
+        Set<Integer> keys = catalogOfProdykt.keySet();
+        System.out.println("keys: " + keys);
+
+        //метод для того щоб всі значення виести на екран
+        ArrayList<String>values = new ArrayList<>(catalogOfProdykt.values());
+        System.out.println("value: " + values);
+
+        //метод для того щоб побачити скільки ссього ключів та значень в мапі
+        System.out.println(catalogOfProdykt.size());
+    }
+}
